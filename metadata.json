@@ -1,0 +1,6 @@
+{
+  "name": "LifeSaver AI",
+  "description": "An AI-powered productivity agent that connects Google Calendar and Gmail to help manage meetings and draft fast emails when you're late, alongside simple task management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
