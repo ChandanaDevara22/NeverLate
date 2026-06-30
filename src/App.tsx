@@ -176,7 +176,7 @@ export default function App() {
           } else {
             setToken(accessToken);
             fetchUserProfile(accessToken);
-            window.history.replaceState(null, "", window.location.pathname);
+            window.history.replaceState(null, "", "/");
           }
         }
       }
@@ -297,7 +297,7 @@ export default function App() {
       "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/userinfo.email"
     ];
-    const redirectUri = window.location.origin;
+    const redirectUri = (import.meta as any).env.VITE_REDIRECT_URI || "https://lifesaver-ai-668871225970.asia-southeast1.run.app/oauth2callback";
 
     const params = new URLSearchParams({
       client_id: clientId,
