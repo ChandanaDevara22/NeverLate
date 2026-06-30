@@ -293,11 +293,10 @@ export default function App() {
     const scopes = [
       "https://www.googleapis.com/auth/calendar.events",
       "https://www.googleapis.com/auth/gmail.compose",
-      "https://www.googleapis.com/auth/gmail.send",
       "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/userinfo.email"
     ];
-    const redirectUri = (import.meta as any).env.VITE_REDIRECT_URI || "https://lifesaver-ai-668871225970.asia-southeast1.run.app/oauth2callback";
+    const redirectUri = "https://lifesaver-ai-668871225970.asia-southeast1.run.app/oauth2callback";
 
     const params = new URLSearchParams({
       client_id: clientId,
@@ -307,20 +306,7 @@ export default function App() {
       prompt: "select_account"
     });
 
-    const width = 500;
-    const height = 650;
-    const left = window.screen.width / 2 - width / 2;
-    const top = window.screen.height / 2 - height / 2;
-
-    const popup = window.open(
-      `${authUrl}?${params.toString()}`,
-      "GoogleLogin",
-      `width=${width},height=${height},left=${left},top=${top}`
-    );
-
-    if (!popup) {
-      window.location.href = `${authUrl}?${params.toString()}`;
-    }
+    window.location.href = `${authUrl}?${params.toString()}`;
   };
 
   const handleLogout = () => {
@@ -1221,7 +1207,7 @@ const handleDeployGmailDraft = async (draftContext: any) => {
                   </div>
                   
                   <div className="text-[10px] text-slate-500 border-t border-white/5 pt-2">
-                    Active Scopes check: <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-[9px] text-[#4ECDC4]">gmail.compose</code>, <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-[9px] text-[#4ECDC4]">gmail.send</code>
+                    Active Scopes check: <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-[9px] text-[#4ECDC4]">gmail.compose</code>
                   </div>
                 </div>
               </div>
